@@ -3,7 +3,7 @@
 // OUTPUT: the value of the 'name' attribute i.e. Benny
 // REQS: use destructuring and the function should be a single line
 
-export const getName = () => {};
+export const getName = ({ name }) => name;
 
 // INPUT: an object with a nested "address" attribute such as
 //   {name: 'Bob Smith', address: {street: 'Main Street', number: 123, city: 'Anytown', country: 'USA}}
@@ -15,7 +15,25 @@ export const printAddress = () => {};
 // REFACTOR CHALLENGE
 // Refactor this function so that all values in the object are destructured
 // as part of the funciton definitions (i.e. there should be no dots in the template literals)
-export const printUserInfo = () => {};
+
+export const printUserInfo = ({
+  username,
+  name: { first, last },
+  info: {
+    favorites: { color, food },
+    pet: { name },
+    address: { number, street, city, country },
+  },
+}) => {
+  return `
+      Username: ${username},
+      Full Name: ${first} ${last},
+      Favorite Color: ${color},
+      Favorite Food: ${food},
+      Pet Name: ${name},
+      Address: ${number} ${street}, ${city}, ${country}
+      `;
+};
 
 // INPUT: an unknown number of input arguments, all numbers
 // OUTPUT: their sum
