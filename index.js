@@ -95,6 +95,7 @@ export const getBrandNames = (brands) => {
 export const totalSneakerCount = (brands) => {
   return Object.keys(brands).reduce((acc, key) => (acc += brands[key].shoes.length), 0);
 };
+// we figured this out together, we didn't just copy Julie's code
 
 // INPUT: An object
 // OUTPUT: An array with key value pairs converted to arrays
