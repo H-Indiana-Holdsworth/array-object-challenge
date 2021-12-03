@@ -44,7 +44,7 @@ export const printUserInfo = ({
 //  getSum(1, 2, 3, 4, 5) === 15
 export const getSum = (...rest) => {
   let sum = 0;
-  rest.forEach((rest) => (rest += sum));
+  rest.forEach((elem) => (sum += elem));
   return sum;
 };
 
@@ -92,7 +92,9 @@ export const getBrandNames = (brands) => {
 
 // INPUT: brands from data.js
 // OUTPUT: total number of sneaker types across all brands (14)
-export const totalSneakerCount = () => {};
+export const totalSneakerCount = (brands) => {
+  return Object.keys(brands).reduce((acc, key) => (acc += brands[key].shoes.length), 0);
+};
 
 // INPUT: An object
 // OUTPUT: An array with key value pairs converted to arrays
